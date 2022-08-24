@@ -52,7 +52,7 @@ do
     do
         if [[ "$line" == "$line2" ]]
         then
-            continue 2
+            continue 2 # I had NO IDEA this was possible
         fi
     done < $2
 echo -e "$line"
