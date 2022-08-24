@@ -5,7 +5,8 @@
 #
 #         USAGE: ./sanitize.sh
 #
-#   DESCRIPTION: 
+#   DESCRIPTION: this script takes lines like "4 Magic Card Title (CMD) *f*"
+#                and turns them into "1x Magic Card Title"
 #
 #       OPTIONS: ---
 #  REQUIREMENTS: ---
@@ -45,9 +46,9 @@ then
     printLine
     exit 0
 fi
-sed -i 's/ (.*//g' $1
-sed -i 's/ \*.*//g' $1
-sed -i 's/[1-9][1-9]?/1/g' $1
+sed -i 's/ (.*//g' $1 # this removes the print info
+sed -i 's/ \*.*//g' $1 # this removes the foil info
+sed -i 's/[1-9][1-9]?/1/g' $1 # turns the number of cards into 1
 # sed -i 's/([1-9])([1-9])?/\1\2x/g' for aetherhub decks to add an x
 exit 0
 
